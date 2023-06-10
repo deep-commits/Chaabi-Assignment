@@ -3,8 +3,8 @@ import { useState, useRef } from "react";
 import "./TypingApp.css";
 import Word from "../Word/Word";
 import Timer from "../Timer/Timer";
-const getCloud = () =>
-  `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.`.split(
+const ParaGraph = () =>
+  `I must not fear. Fear is the mind-killer. Fear is the little-death that brings total obliteration. I will face my fear. I will permit it to pass over me and through me. And when it has gone past I will turn the inner eye to see its path. Where the fear has gone there will be nothing. Only I will remain.`.split(
     " "
   );
 
@@ -13,7 +13,7 @@ function TypingApp() {
   const [activeWordIndex, setActiveWordIndex] = useState(0);
   const [correctWordArr, setcorrectWordArr] = useState([]);
   const [startCounting, setStartCounting] = useState(false);
-  const cloud = useRef(getCloud());
+  const cloud = useRef(ParaGraph());
 
   const processInput = (value) => {
     if (activeWordIndex === cloud.current.length) {
@@ -51,11 +51,8 @@ function TypingApp() {
 
   return (
     <div className="App">
-      <Timer
-        startCounting={startCounting}
-        correctWords={correctWordArr.filter(Boolean).length}
-      />
-      <div className="text-pera">
+      
+      <div className="text-passage">
         <p>
           {cloud.current.map((words, index) => {
             return (
@@ -68,12 +65,17 @@ function TypingApp() {
             );
           })}
         </p>
+        
       </div>
       <input
-        placeholder="Start typing hare..."
+        placeholder="Type here..."
         type="text"
         value={userInput}
         onChange={(e) => processInput(e.target.value)}
+      />
+      <Timer
+        startCounting={startCounting}
+        correctWords={correctWordArr.filter(Boolean).length}
       />
     </div>
   );
