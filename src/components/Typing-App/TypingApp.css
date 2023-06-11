@@ -21,9 +21,14 @@ input {
   border-radius: 25px;
   border: 5px solid rgba(129, 254, 4, 0.447);
   padding: 20px;
-  margin-left: 350px;
   margin-top: 30px;
 }
 .App{
-  height: 100% !important;
+  height: 44% !important;
+  text-align: center;
+  font-size: medium;
+}
+.App h2{
+  text-align: left;
+  font-size: small;
 }

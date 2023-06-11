@@ -66,6 +66,8 @@ function TypingApp() {
 
   return (
     <div className="App">
+    <h1>|| Typing-App ||</h1>
+    <h2>* Refresh to randomly generate different paragraph</h2>
       <div className="text-passage">
         <p>
           {cloud.current.map((words, index) => {
